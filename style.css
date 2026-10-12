@@ -221,7 +221,7 @@ footer.note { margin-top: 20px; font-size: 13px; color: #800000; text-align: cen
 .cover-wrap {
   width: calc(100% + 80px);
   cursor: pointer;
-  margin: -44px -40px -40px;
+  margin: -44px -40px 0;
 }
 .cover-img {
   width: 100%;
