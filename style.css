@@ -223,6 +223,8 @@ footer.note { margin-top: 20px; font-size: 13px; color: #800000; text-align: cen
   cursor: pointer;
   margin: -44px -40px 0;
 }
+.card:has(#screen-cover.active) { padding-bottom: 10px; }
+.card:has(#screen-cover.active) footer.note { margin-top: 10px; }
 .cover-img {
   width: 100%;
   height: auto;
