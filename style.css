@@ -189,6 +189,21 @@ button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 }
 .surprise-msg.show { opacity: 1; max-height: 200px; }
 
+.balloon {
+  position: fixed; bottom: -110px; z-index: 6; pointer-events: none;
+  background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.55), transparent 32%), var(--c);
+  border-radius: 50% 50% 48% 52% / 58% 58% 42% 42%;
+  box-shadow: inset -6px -8px 12px rgba(0,0,0,0.15);
+}
+.balloon::before {
+  content: ''; position: absolute; left: 50%; bottom: -6px;
+  border: 5px solid transparent; border-top: 7px solid var(--c); border-bottom: 0;
+  transform: translateX(-50%);
+}
+.balloon::after {
+  content: ''; position: absolute; left: 50%; top: 100%; width: 1px; height: 70px;
+  background: rgba(90,36,48,0.45); margin-top: 6px;
+}
 .heart-pop { position: fixed; pointer-events: none; z-index: 5; font-size: 18px; }
 
 footer.note { margin-top: 20px; font-size: 13px; color: #800000; text-align: center; }

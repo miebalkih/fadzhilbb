@@ -20,6 +20,30 @@ function openGift(e) {
   box.classList.add('open');
   msg.classList.add('show');
   popHearts(e.clientX, e.clientY);
+  setTimeout(releaseBalloons, 500);
+}
+
+function releaseBalloons() {
+  var colors = ['#b3495a', '#c79a5b', '#e7b8c2', '#8a2e3d', '#f4d58d', '#d97e8d'];
+  for (var i = 0; i < 16; i++) {
+    (function(i){
+      var b = document.createElement('div');
+      b.className = 'balloon';
+      b.style.setProperty('--c', colors[i % colors.length]);
+      b.style.left = (Math.random() * 92 + 2) + 'vw';
+      var size = 42 + Math.random() * 26;
+      b.style.width = size + 'px';
+      b.style.height = (size * 1.22) + 'px';
+      document.body.appendChild(b);
+      var sway = (Math.random() * 80 - 40);
+      var anim = b.animate([
+        { transform: 'translate(0, 0) rotate(-4deg)' },
+        { transform: 'translate(' + sway + 'px, -60vh) rotate(4deg)', offset: 0.5 },
+        { transform: 'translate(' + (-sway / 2) + 'px, -130vh) rotate(-3deg)' }
+      ], { duration: 5000 + Math.random() * 3000, delay: Math.random() * 1500, easing: 'ease-in', fill: 'both' });
+      anim.onfinish = function(){ b.remove(); };
+    })(i);
+  }
 }
 
 function popHearts(x, y) {
